@@ -1,0 +1,19 @@
+{
+  "name": "apna-dhaba",
+  "version": "1.0.0",
+  "description": "This is a food ordering website",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ranveerrajput/Apna-Dhaba.git"
+  },
+  "author": "Ranveer Rajput",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ranveerrajput/Apna-Dhaba/issues"
+  },
+  "homepage": "https://github.com/ranveerrajput/Apna-Dhaba#readme"
+}
