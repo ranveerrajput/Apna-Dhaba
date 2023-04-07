@@ -25,5 +25,15 @@ const div = React.createElement(
   [heading1, heading2]
 );
 
+const heading = (
+  <h1 id="title" key="h2">
+    Welocme to React
+  </h1>
+);
+
+const HeadingComponent = () => {
+  return <h1>This is the functional Component</h1>;
+};
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(div);
+root.render(<HeadingComponent />);
