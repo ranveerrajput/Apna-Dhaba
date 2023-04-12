@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { restaurantList } from "../config";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 function filterDate(searchText, allRestaurants) {
   const filterData = allRestaurants.filter((restaurants) =>
-    restaurants?.data?.name?.toLowerCase()?.includes(searchText.toLowerCase())
+    restaurants?.data?.name?.toLowerCase()?.includes(searchText?.toLowerCase())
   );
   return filterData;
 }
@@ -21,17 +22,17 @@ const Body = () => {
 
   async function getRestaurnats() {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.5868397&lng=73.68599499999999&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log(json);
+    //console.log(json);
     setAllRestaurants(json.data.cards[2].data.data.cards);
     setFilterRestaurants(json.data.cards[2].data.data.cards);
   }
 
   console.log("This is render");
   //This is known as Early return
-  if (!allRestaurants.length) return null;
+  //if (!allRestaurants.length) return null;
 
   return allRestaurants.length == 0 ? (
     <Shimmer />
@@ -62,10 +63,12 @@ const Body = () => {
           ? Shimmer()
           : filterRestaurants.map((restaurent) => {
               return (
-                <RestaurantCard
-                  {...restaurent.data}
+                <Link
+                  to={"/restaurant/" + restaurent?.data?.id}
                   key={restaurent?.data?.id}
-                />
+                >
+                  <RestaurantCard {...restaurent.data} />
+                </Link>
               );
             })}
       </div>
