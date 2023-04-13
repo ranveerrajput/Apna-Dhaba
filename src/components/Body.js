@@ -26,13 +26,13 @@ const Body = () => {
     );
     const json = await data.json();
     //console.log(json);
-    setAllRestaurants(json.data.cards[2].data.data.cards);
-    setFilterRestaurants(json.data.cards[2].data.data.cards);
+    setAllRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+    setFilterRestaurants(json?.data?.cards[2]?.data?.data?.cards);
   }
 
   console.log("This is render");
   //This is known as Early return
-  //if (!allRestaurants.length) return null;
+  if (!allRestaurants.length) return null;
 
   return allRestaurants.length == 0 ? (
     <Shimmer />
