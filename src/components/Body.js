@@ -39,7 +39,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="search-container">
+      <div className="p-5 bg-yellow-100 ">
         <input
           type="text"
           className="search-input"
@@ -50,7 +50,7 @@ const Body = () => {
           }}
         />
         <button
-          className="search-btn"
+          className="bg-black text-white px-2 py-1 rounded"
           onClick={() => {
             const data = filterDate(searchText, allRestaurants);
             setFilterRestaurants(data);
@@ -59,7 +59,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="restaurant-list">
+      <div className="flex flex-wrap">
         {filterRestaurants.length == 0
           ? Shimmer()
           : filterRestaurants.map((restaurent) => {
