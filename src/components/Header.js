@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Logo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Title = () => (
   <a href="/">
@@ -10,6 +11,8 @@ const Title = () => (
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  const { user } = useContext(UserContext);
   return (
     <div className="flex justify-between bg-yellow-400 drop-shadow-2xl">
       <Title />
@@ -30,6 +33,7 @@ const Header = () => {
           <li className="px-2">Cart</li>
         </ul>
       </div>
+      {user.name}
       {isLoggedIn ? (
         <button onClick={() => setIsLoggedIn(false)}>Logged In</button>
       ) : (
