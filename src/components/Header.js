@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import Logo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import store from "../utils/store";
+import { useSelector } from "react-redux";
 
 const Title = () => (
   <a href="/">
@@ -13,6 +15,9 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const { user } = useContext(UserContext);
+
+  const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   return (
     <div className="flex justify-between bg-yellow-400 drop-shadow-2xl">
       <Title />
@@ -30,7 +35,10 @@ const Header = () => {
           <Link to="/instamart">
             <li className="px-2">Instamart</li>
           </Link>
-          <li className="px-2">Cart</li>
+          <Link to="/cart">
+            {" "}
+            <li className="px-2">Cart-{cartItems.length} Items</li>
+          </Link>
         </ul>
       </div>
       {user.name}
