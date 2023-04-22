@@ -42,7 +42,7 @@ const RestaurantMenu = () => {
         )}
 
         {
-          <ul>
+          <ul data-testid="menu">
             {Object.values(
               restaurant?.cards[2]?.groupedCard?.cardGroupMap.REGULAR?.cards[1]
                 ?.card?.card.itemCards
@@ -50,6 +50,7 @@ const RestaurantMenu = () => {
               <li key={item?.card?.info?.id}>
                 {item?.card?.info?.name}{" "}
                 <button
+                  data-testid="addBtn"
                   className="p-2 m-2 bg-green-300"
                   onClick={() => addFoodItem(item)}
                 >

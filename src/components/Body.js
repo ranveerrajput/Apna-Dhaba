@@ -41,6 +41,7 @@ const Body = () => {
     <>
       <div className="p-5 bg-yellow-100 ">
         <input
+          data-testid="search-input"
           type="text"
           className="search-input"
           placeholder="Search"
@@ -50,6 +51,7 @@ const Body = () => {
           }}
         />
         <button
+          data-testid="search-btn"
           className="bg-black text-white px-2 py-1 rounded"
           onClick={() => {
             const data = filterDate(searchText, allRestaurants);
@@ -59,7 +61,7 @@ const Body = () => {
           Search
         </button>
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap" data-testid="res-id">
         {filterRestaurants.length == 0
           ? Shimmer()
           : filterRestaurants.map((restaurent) => {
